@@ -1,0 +1,54 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Destination</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="schedule in Schedules">
+        <td >
+            <div v-if="Editing">
+                <input type="text" class="form-control" name="startdate"  v-model="schedule.startdate" >
+
+            </div>
+            <div v-else>
+                <p>{{schedule.startdate}}</p>
+
+            </div>
+        </td>
+
+         <td >
+            <div v-if="Editing">
+                <input type="text" class="form-control" name="enddate"  v-model="schedule.enddate" >
+
+            </div>
+            <div v-else>
+                <p>{{schedule.enddate}}</p>
+
+            </div>
+        </td>
+        <td >
+            <div v-if="Editing">
+                <input type="text" class="form-control" name="destination"  v-model="schedule.destination" >
+
+            </div>
+            <div v-else>
+                <p>{{schedule.destination}}</p>
+
+            </div>
+        </td>
+        <td>
+            <div v-if="Editing">
+                <button v-on:click="save($index)" type="submit" class="btn btn-primary">Save</button>
+            </div>
+            <div v-else>
+                <button v-on:click="isEditing()" type="button" class="btn btn-primary">Edit</button>
+            </div>
+        </td>
+        <td><button v-on:click="deleted($index)" type="button" class="btn btn-primary">Delete</button></td>
+    </tr>
+    </tbody>
+</table>
+

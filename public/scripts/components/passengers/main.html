@@ -1,0 +1,50 @@
+<table class="table table-bordered">
+    <thead>
+    <tr class="success">
+        <th>Firs tname</th>
+        <th>Last name</th>
+        <th>Phone Number</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="passenger in Passengers">
+        <td >
+            <div v-if="Editing">
+                <input type="text" class="form-control" name="firstname"  v-model="passenger.firstname" >
+
+            </div>
+            <div v-else>
+                <p>{{passenger.firstname}}</p>
+
+            </div>
+        </td>
+        <td>
+            <div v-if="Editing">
+                <input  type="text" class="form-control" name="lastname"  v-model="passenger.lastname" >
+            </div>
+            <div v-else>
+                <p>{{passenger.lastname}}</p>
+            </div>
+        </td>
+        <td>
+            <div v-if="Editing">
+                <input type="text" class="form-control" name="pasphone"  v-model="passenger.pasphone" >
+            </div>
+            <div v-else>
+                <p>{{passenger.pasphone}}</p>
+            </div>
+        </td>
+        <td>
+            <div v-if="Editing">
+                <button v-on:click="save($index)" type="submit" class="btn btn-primary">Save</button>
+            </div>
+            <div v-else>
+                <button v-on:click="isEditing()" type="button" class="btn btn-primary">Edit</button>
+            </div>
+        </td>
+        <td><button v-on:click="deleted($index)" type="button" class="btn btn-primary">Delete</button></td>
+    </tr>
+    </tbody>
+</table>

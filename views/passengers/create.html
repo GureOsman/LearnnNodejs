@@ -1,0 +1,22 @@
+{%extends "layouts/user.html"%}
+{%block content%}
+<div style="width: 60%; margin-left: 182px;" class="panel">
+    <div class="panel-body">
+        <form action="/passenger/create" method="post">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" placeholder="Firs name" name="firstname">
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input class="form-control" placeholder="Last Name" name="lastname">
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input class="form-control" placeholder="Phone Number" name="pasphone">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+</div>
+</div>
+{%endblock%}

@@ -1,0 +1,24 @@
+{%extends "layouts/auth.html"%}
+{%block content%}
+<div class="col-lg-4"></div>
+<div class="col-lg-4">
+    <div class="panel-default" style="background-color:#000000; margin-top: 175px">
+        <div class="panel-body">
+            <h1 style="color: #ffffff; margin-left: 63px;">Login</h1>
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label style="color: #ffffff">Email address</label>
+                    <input type="email" name="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label style="color: #ffffff">Password</label>
+                    <input type="password" name="password" class="form-control"placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin-left: 75px;">Login</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="col-lg-4"></div>
+{%endblock%}

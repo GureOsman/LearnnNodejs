@@ -1,0 +1,50 @@
+<table class="table table-bordered"  style="background-color: #E7E6C5">
+    <thead>
+    <tr>
+        <th>Plane Name</th>
+        <th>Capacity</th>
+        <th>Plane Type</th>
+        <th>Actions</th>s
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="plane in Planes">
+        <td >
+            <div v-if="Editing">
+                <input type="text" class="form-control" name="name"  v-model="plane.name" >
+            </div>
+            <div v-else>
+                <p>{{plane.name}}</p>
+            </div>
+        </td>
+        <td >
+            <div v-if="Editing">
+                <input type="text" class="form-control" name="capacity"  v-model="plane.capacity" >
+            </div>
+            <div v-else>
+                <p>{{plane.capacity}}</p>
+            </div>
+        </td>
+        <td >
+            <div v-if="Editing">
+                <input type="text" class="form-control" name="type"  v-model="plane.type" >
+            </div>
+            <div v-else>
+                <p>{{plane.type}}</p>
+            </div>
+        </td>
+        <td>
+            <div v-if="Editing">
+                <button v-on:click="save($index)" type="submit" class="btn btn-primary">Save</button>
+            </div>
+            <div v-else>
+                <form>
+                    <button v-on:click="isEditing()" type="button" class="btn btn-primary">Edit</button>
+                    <button v-on:click="deleted($index)" type="button" class="btn btn-primary">Delete</button>
+                </form>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
