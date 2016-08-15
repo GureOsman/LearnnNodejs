@@ -14,11 +14,12 @@ nunjucks.configure('views', {
     watch:true
 });
 app.use(sessions({
-    resave: true,
-    saveUninitialized: true,
-    secret:'CCXXXLLLDD9900FFF',
-    cookie: { maxAge: 60000 }
-}));
+        secret: 'keyboard cat',
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: false }
+    }
+));
 app.use(flash());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/public" ,express.static(path.join(__dirname , "public")));
@@ -68,6 +69,9 @@ app.post("/login",function (req , res) {
 });
 app.use("/", function (req , res ,next) {
     if (req.session.user) {
+        res.header("Access-Control-Allow-Origin","*");
+        res.header("Access-Control-Allow-Methods", "*");
+        res.header("Access-Control-Allow-Headers", "accept, cache-control, content-type, x-requested-with, token");
         app.locals.user = req.session.user;
         next()
     }
@@ -115,7 +119,7 @@ app.post("/passenger/create", function (req, res) {
             body:{
                 firstname:req.body.firstname,
                 lastname:req.body.lastname,
-                pasphone: req.body.pasphone
+                pasphone: parseInt(req.body.pasphone)
             }
         },function (err, response, body) {
             if (body.status == "success"){
@@ -156,7 +160,7 @@ app.post("/tickets/create", function (req, res) {
             json:true,
             body:{
                 type:req.body.type,
-                price:req.body.price
+                price:parseInt(req.body.price)
             }
         },function (err, response, body) {
             if (body.status == "success"){
@@ -194,6 +198,6 @@ app.get("/config.js" ,function (req, res) {
     res.send(src);
 });
 http.createServer(app).listen(80, function () {
-    console.log("your application runing at 80 port")
+    console.log("your application runing On 80 port")
 });
 

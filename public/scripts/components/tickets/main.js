@@ -22,6 +22,7 @@ module.exports = Vue.extend({
             console.log("Ticket: ",Ticket);
             this.$http.put('tickets/' + Ticket.id ,Ticket).then(function(req ,res){
                 this.Ticket = req.data
+                this.Editing = false
             }, function (err) {
             });
         },
@@ -32,7 +33,8 @@ module.exports = Vue.extend({
             var Ticket = this.Tickets[i];
             console.log("schedule: ",Ticket);
             this.$http.delete('tickets/' + Ticket.id ,Ticket).then(function(req ,res){
-                this.Ticket = req.data
+                this.Ticket = req.data;
+                this.Editing = false
             }, function (err) {
             });
         }

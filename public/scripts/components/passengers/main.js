@@ -21,8 +21,9 @@ module.exports = Vue.extend({
         save: function(i) {
             var passenger = this.Passengers[i];
             console.log("passenger: ",passenger);
-            this.$http.put('passengers/' + passenger.id ,passenger).then(function(req ,res){
-                this.passenger = req.data
+            this.$http.put('passengers/' + passenger.id ,passenger).then(function(res){
+                this.passenger = res.data;
+                this.Editing =false
             }, function (err) {
             });
         },
@@ -34,7 +35,7 @@ module.exports = Vue.extend({
             console.log("passenger: ",passenger);
             this.$http.delete('passengers/' + passenger.id ,passenger).then(function(req ,res){
                 this.passenger = req.data;
-                this.Editing = false;
+                this.Editing = false
             }, function (err) {
             });
         }

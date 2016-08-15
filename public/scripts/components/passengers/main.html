@@ -12,11 +12,11 @@
     <tr v-for="passenger in Passengers">
         <td >
             <div v-if="Editing">
-                <input type="text" class="form-control" name="firstname"  v-model="passenger.firstname" >
+                    <input type="text" class="form-control" name="firstname"  v-model="passenger.firstname" >
 
-            </div>
-            <div v-else>
-                <p>{{passenger.firstname}}</p>
+                </div>
+                <div v-else>
+                    <p>{{passenger.firstname}}</p>
 
             </div>
         </td>
@@ -44,7 +44,7 @@
                 <button v-on:click="isEditing()" type="button" class="btn btn-primary">Edit</button>
             </div>
         </td>
-        <td><button v-on:click="deleted($index)" type="button" class="btn btn-primary">Delete</button></td>
+        <td><button  v-on:click="deleted($index)" type="button" class="btn btn-primary" onClick="window.location.reload()">Delete</button></td>
     </tr>
     </tbody>
 </table>

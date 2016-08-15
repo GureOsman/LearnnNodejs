@@ -21,7 +21,9 @@ module.exports = Vue.extend({
             var schedule = this.Schedules[i];
             console.log("passenger: ",schedule);
             this.$http.put('schedules/' + schedule.id ,schedule).then(function(req ,res){
-                this.schedule = req.data
+                this.schedule = req.data;
+                this.Editing = false
+
             }, function (err) {
             });
         },
@@ -32,7 +34,9 @@ module.exports = Vue.extend({
             var schedule = this.Schedules[i];
             console.log("schedule: ",schedule);
             this.$http.delete('schedules/' + schedule.id ,schedule).then(function(req ,res){
-                this.schedule = req.data
+                this.schedule = req.data;
+                this.Editing = false
+
             }, function (err) {
             });
         }

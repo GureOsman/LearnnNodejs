@@ -47,7 +47,7 @@
                 <button v-on:click="isEditing()" type="button" class="btn btn-primary">Edit</button>
             </div>
         </td>
-        <td><button v-on:click="deleted($index)" type="button" class="btn btn-primary">Delete</button></td>
+        <td><button v-on:click="deleted($index)" type="button" class="btn btn-primary" onClick="window.location.reload()">Delete</button></td>
     </tr>
     </tbody>
 </table>
