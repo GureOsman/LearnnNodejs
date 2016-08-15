@@ -197,7 +197,7 @@ app.get("/config.js" ,function (req, res) {
     var src = "var User = " + JSON.stringify(req.session.user);
     res.send(src);
 });
-http.createServer(app).listen(80, function () {
+app.listen(80 , function () {
     console.log("your application runing On 80 port")
 });
-
+app.listen(3000);
